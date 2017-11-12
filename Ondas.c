@@ -372,10 +372,22 @@ void futurotambor(){
 }
 
 void paraplot(){
-    FILE *mifile= fopen("Resultados_hw4.tex", "w");
+    FILE *mifile= fopen("cuerda.tex", "w");
     for(i=0;i<129;i++){
         fprintf(mifile, "format: %f %f %f %f %f %f %f %f %f %f\n", posicion[i],u_fut1[i],u_fut2[i],u_fut3[i],u_fut4[i],u_fut5[i],u_fut9[i],u_fut10[i],u_fut11[i],u_fut12[i]);
     }
+    FILE *mifile2= fopen("tambor.tex", "w");
+    for(i=0;i<101;i++){
+        for(j=0;i<101;i++){
+            fprintf(mifile2, "format: %f %f %f %f\n", u_fut20[i][j],u_fut21[i][j],u_fut22[i][j],u_fut23[i][j]);
+
+        }
+    }
 }
+
+
+
+
+
 
 
