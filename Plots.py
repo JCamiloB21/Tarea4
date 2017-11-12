@@ -2,8 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io.wavfile
 
-data=np.genfromtxt("Resultados_hw4.tex",delimiter=" ")
+data=np.genfromtxt("cuerda.tex",delimiter=" ")
 data1=np.genfromtxt("audio.dat")
+data2=np.genfromtxt("tambor.tex")
 x=data[:,1]
 amplitud1= data[:,2]
 
@@ -23,21 +24,23 @@ amplitud12= data[:,10]
 
 
 plt.figure()
-plt.plot(x,amplitud2)
-plt.plot(x,amplitud3, c="red")
-plt.plot(x,amplitud4, c="yellow")
-plt.plot(x,amplitud5, c="black")
+plt.plot(x,amplitud2, c="blue", label="t=0")
+plt.plot(x,amplitud3, c="red",label="t=T/8")
+plt.plot(x,amplitud4, c="yellow",label="t=T/4")
+plt.plot(x,amplitud5, c="black",label="t=T/2")
 plt.xlabel("Posicion")
 plt.ylabel("Amplitud")
+plt.legend()
 plt.show()
 
 plt.figure()
-plt.plot(x,amplitud9)
-plt.plot(x,amplitud10, c="red")
-plt.plot(x,amplitud11, c="yellow")
-plt.plot(x,amplitud12, c="black")
+plt.plot(x,amplitud9, c="blue",label="t=0")
+plt.plot(x,amplitud10, c="red",label="t=T/8")
+plt.plot(x,amplitud11, c="yellow",label="t=T/4")
+plt.plot(x,amplitud12, c="black",label="t=T/2")
 plt.xlabel("Posicion")
 plt.ylabel("Amplitud")
+plt.legend()
 plt.show()
 
 scipy.io.wavfile.write("sonido.wav",0.00001,data1)
