@@ -1,10 +1,10 @@
-Resultados_hw4.pdf : Resultados_hw4.tex *.png
+Resultados_hw4.pdf : Resultados_hw4.tex graficas.png
 	pdflatex $< 
-*.png : *.dat Plots.py
+graficas.png : cuerda.tex tambor.tex Plots.py
 	python Plots.py
-*.dat : sale.out
-	./sale.out
-sale.out : Ondas.c
+cuerda.tex : Ondas.c
+	gcc -lm Ondas.c
+tambor.tex : Ondas.c
 	gcc -lm Ondas.c
 clean :
-	rm *.dat *.png *.log *.aux sale.out
+	rm cuerda.tex graficas.png tambor.tex 
